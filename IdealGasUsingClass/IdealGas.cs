@@ -14,10 +14,7 @@ namespace IdealGasUsingClass
         private double molecularWeight;
         private double pressure;
         
-
-
         //setters/getters
-
         public double GetMass()
         {
             return this.gasMass;
@@ -66,7 +63,7 @@ namespace IdealGasUsingClass
         {
             return this.pressure;
         }
-
+        //Instance method for calculating pressure
         private void Calc()
         {
             double tempK = this.gasTemp + 273.15;

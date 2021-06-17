@@ -26,10 +26,7 @@ namespace IdealGasUsingClass
             string gasSelection;  //user gas selection entry
            
 
-          
-
-
-            //MAIN SECTION
+            //DRIVER SECTION
             DisplayHeader();  //not required but already written by time document changed so left as is
             GetMolecularWeights(ref gasNames, ref moleWeights, out gasCount);  //fill arrays & get element count
             DisplayGasNames(gasNames, gasCount);                               //display gases to user
