@@ -37,7 +37,7 @@ namespace IdealGasUsingClass
                 gasSelection = Console.ReadLine();
                 //get the molecular weight (and count of elements)
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
-                if (molecularWeight != 0)
+                if (molecularWeight > 0)
                 {
                     //if gas is found:
                     //instantiate new IdealGas
@@ -73,7 +73,7 @@ namespace IdealGasUsingClass
                 Console.WriteLine("Would you like to calculate another pressure? (enter yes to continue): ");
                 another =Console.ReadLine();
 
-            } while (another.ToLower() == "yes");  //ignore case on input (small attempt at validation)
+            } while (string.Equals(another.ToLower(), "yes"));  //ignore case on input (small attempt at validation)
 
             //exit message
             Console.WriteLine("\n\nHave a great day!  Goodbye!\n\n");
@@ -125,8 +125,8 @@ namespace IdealGasUsingClass
         }
         private static double GetMolecularWeightFromName(string gasName, string[] gasNames, double[] molecularWeights, int countGases)
         {
-            //GETS MOLECULAR WEIGHT FROM GAS NAME.  RETURNS 0 IF NAME NOT FOUND          
-            double response = 0;
+            //GETS MOLECULAR WEIGHT FROM GAS NAME.  RETURNS -1 IF NAME NOT FOUND          
+            double response = -1;
             for (int i = 0; i < countGases; i++)
             {
                 if (gasName.Equals(gasNames[i]))
