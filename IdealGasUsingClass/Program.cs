@@ -44,23 +44,44 @@ namespace IdealGasUsingClass
                     IdealGas newGas = new IdealGas();
                     newGas.SetMolecularWeight(molecularWeight);
 
-                    //get volume from user
-                    Console.WriteLine("Please input the volume of the gas in cubic meters: ");
-                    gasVolume = Convert.ToDouble(Console.ReadLine());
-                    newGas.SetVolume(gasVolume);
+                    try
+                    {
+                        //get volume from user
+                        Console.WriteLine("Please input the volume of the gas in cubic meters: ");
+                        gasVolume = Convert.ToDouble(Console.ReadLine());
+                        newGas.SetVolume(gasVolume);
 
-                    //get mass from user
-                    Console.WriteLine("Please input the mass of the gas in grams: ");
-                    gasMass = Convert.ToDouble(Console.ReadLine());
-                    newGas.SetMass(gasMass);
+                        //get mass from user
+                        Console.WriteLine("Please input the mass of the gas in grams: ");
+                        gasMass = Convert.ToDouble(Console.ReadLine());
+                        newGas.SetMass(gasMass);
 
-                    //get temp from user
-                    Console.WriteLine("Please input the temperature of the gas in Celsius: ");
-                    gasTemp = Convert.ToDouble(Console.ReadLine());
-                    newGas.SetTemp(gasTemp);
+                        //get temp from user
+                        Console.WriteLine("Please input the temperature of the gas in Celsius: ");
+                        gasTemp = Convert.ToDouble(Console.ReadLine());
+                        newGas.SetTemp(gasTemp);
 
-                    //display the result
-                    DisplayPressure(newGas.GetPressure());   
+                        //display the result
+                        DisplayPressure(newGas.GetPressure());
+ 
+                    }
+
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine("\nYou must enter a number!\n");
+
+                    }
+
+                    catch (OverflowException e)
+                    {
+                        Console.WriteLine("\nYou entered too large a number!\n");
+                    }
+
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("\nError: " + e.Message);
+                        Console.WriteLine();
+                    }
                 }
                 else
                 {
